@@ -1,5 +1,13 @@
 package ru.netology.constructor;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
 
     private int maxStation = 10;  //для информации
@@ -8,59 +16,6 @@ public class Radio {
     private int minVolume = 0;
     private int currentVolume;
     private int currentStation;
-
-
-    public Radio(int maxStation,
-                 int minStation,
-                 int maxVolume,
-                 int minVolume,
-                 int currentVolume,
-                 int currentStation) {
-        this.maxStation = maxStation;
-        this.minStation = minStation;
-        this.maxVolume = maxVolume;
-        this.minVolume = minVolume;
-        this.currentVolume = currentVolume;
-        this.currentStation = currentStation;
-    }
-
-    public int getMaxStation() {
-        return maxStation;
-    }
-
-    public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
-    }
-
-    public int getMinStation() {
-        return minStation;
-    }
-
-    public void setMinStation(int minStation) {
-
-        this.minStation = minStation;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
-
-    //установить  громкость с пульта
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
 
     //если громкость максимальная нечего не делаем при увеличении
     public void setCurrentVolume(int currentVolume) {
@@ -72,11 +27,6 @@ public class Radio {
         }
         this.currentVolume = currentVolume;
 
-    }
-
-    //установить  радиостанцию с пульта
-    public int getCurrentStation() {
-        return currentStation;
     }
 
     // если переход по станциям
@@ -104,14 +54,14 @@ public class Radio {
             currentStation--;
         } else currentStation = maxStation;
     }
-
+    // добавить громкость
     public void NextVolume() {
         if (currentVolume < maxVolume) {
             currentVolume++;
         } else currentVolume = maxVolume;
 
     }
-
+    // убавить громкость
     public void PreviousVolume() {
         if (currentVolume > minVolume) {
             currentVolume--;
